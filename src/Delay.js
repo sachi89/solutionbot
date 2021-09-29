@@ -1,5 +1,4 @@
 import React from 'react';
-import './bot';
 
 //when using state in React, need to set up constructor
 class Delay extends React.Component

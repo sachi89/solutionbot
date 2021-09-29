@@ -1,0 +1,18 @@
+.bubble p {
+  margin: 2px;
+}
+.bubble {
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+#bot .bubble {
+  background: #00d2ff; border-radius:15px;
+}
+#botline {
+
+}
+#user .bubble {
+  background: #3a47d5; border-radius:15px; color:white;
+}
+#userline {
+
+}
