@@ -1,10 +1,8 @@
 import './App.css';
 import React from 'react';
-import "bootstrap/dist/css/bootstrap.min.css";
 import './bot';
 import Nav from './Nav';
 import Chatbox from './Chatbox';
-
 
 
 //when using state in React, need to set up constructor
@@ -29,6 +27,7 @@ class App extends React.Component
       <div> {/* render must be followed with div tag. */}
           <Nav /> {/* Nav bar component */}
           <Chatbox />
+          
       </div>
     );
   }
