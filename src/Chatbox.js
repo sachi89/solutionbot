@@ -1,22 +1,19 @@
 import React from 'react';
 import './Chatbox.css';
-//import './bot';
 import Delay from './Delay';
 import './TextBubble.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { bot } from './bot';
 
 //initialize i to 0 to use as index for bot response
 let i = 0;
-// array of bot responses for testing
-const bot = ["resp1", "resp2", "resp3", "resp4", "resp5"];
 
 // css for replies style tag
 const replystyle = {
   width: 400,
   padding: 10
 };
-
 
 //when using state in React, need to set up constructor
 class Chatbox extends React.Component
@@ -30,6 +27,7 @@ class Chatbox extends React.Component
           replies: [], // will be used to copy contents of user and bot replies to array
           i: 0 // set initial state of i to 0 so that its state can be updated later
         };
+
     }
 
     // handles event listener for onChange, when user types input
@@ -49,19 +47,18 @@ class Chatbox extends React.Component
               //update state of objects and variables
               this.setState(
                 {
-                  // set user to an empty string to reset value in input box to empty after click
-                  user: '',
-                  // copy user responses to userinputs array in case specific user input needs to be accessed later
-                  userinputs: [...this.state.userinputs, this.state.user],
-                  //replies array copies styled and formatted user input and bot responses in jsx tags and css to be rendered
-                  replies: [...this.state.replies, <div id="user"><div className="bubble m-3 float-end grow">
-                  <p style={replystyle}> User: {this.state.user}</p></div></div>,
-                  <div id="bot" className=""><div className="bubble m-3 float-start grow"><Delay><p style={replystyle}>Bot: {bot[i]}</p></Delay></div></div>],
-                  // increment value of i for index of bot response
-                  i: i+=1
+                    // set user to an empty string to reset value in input box to empty after click
+                    user: '',
+                    // copy user responses to userinputs array in case specific user input needs to be accessed later
+                    userinputs: [...this.state.userinputs, this.state.user],
+                    //replies array copies styled and formatted user input and bot responses in jsx tags and css to be rendered
+                    replies: [...this.state.replies, <div id="user"><div className="bubble m-3 float-end grow">
+                    <p style={replystyle}> {this.state.user} </p></div></div>,
+                    <div id="bot" className=""><div className="bubble m-3 float-start grow"><Delay><p style={replystyle}> {i==0 ? this.state.user : ''}{bot[i].response} </p></Delay></div></div>],
+                    // increment value of i for index of bot response
+                    i: i+=1
                 }
               );
-              console.log(i); //for testing
           }
   }
 
@@ -72,36 +69,38 @@ class Chatbox extends React.Component
     // comments for jsx written within {/*  */}
   return(
     <div>
-      <center>
-      <div className="platform">
-            <div id="chatbox" className="row w-75 p-5 m-5 d-flex justify-content-center grow"> {/* grow from tachyons, other css from bootstrap */}
+        <center>
+            <div id="chatbox" className="row p-5 m-5 d-flex justify-content-center">
+                {/* grow from tachyons, other css from bootstrap */}
                 {/* container for the user and bot messages */}
                 {/* must use className instead of class in JSX because class is a reserved word in JavaScript */}
-                <div className = "d-flex"> 
+                <div className = "d-flex">
                     <div className="row">
                         <div id="bot" className="">
-                          <div className="bubble m-3 float-start grow">
-                            <Delay> {/* Delay component used to hide response until set time runs out. Then shows child prop */}
-                            <p style={replystyle}> Hello, I'm SolutionBot. I'm here to help you find a solution to your problem using Solution Focused Brief Therapy. Before we begin, can I have your name please? </p>
-                            </Delay>
-                          </div>
+                            {/* text bubble */}
+                            <div className="bubble m-3 float-start grow">
+                                <Delay> {/* Delay component used to hide response until set time runs out. Then shows child prop */}
+                                <p style={replystyle}> Hello, I'm SolutionBot. I'm here to help you find a solution to your problem using Solution Focused Brief Therapy. Before we begin, can I have your name please? </p>
+                                </Delay>
+                            </div>
+
                         </div>
                         {/* prints the array of responses*/}
                         {this.state.replies}
                     </div>
                 </div>
             </div>
+        </center>
 
-      </div>
-      </center>
-      <div className="textfield d-flex justify-content-center">
-        <Form className="App" onSubmit={this.handleClick}> {/* event listener to handle form submission */}
-        <div className="d-grid gap-2"> {/* event listener to handle change in input */}
-          <Form.Control size="lg" type="text" placeholder="Enter reply" value={this.state.user} onChange={this.handleChange} style={{width: 700}} />
-          <Button variant="info" size="lg" type="submit">Submit</Button> {/* Form and Button from react-bootstrap */}
-          </div>
-        </Form>
-      </div>
+        <div className="textfield d-flex justify-content-center">
+            <Form className="App" onSubmit={this.handleClick}> {/* event listener to handle form submission */}
+            <div className="d-grid gap-2"> {/* event listener to handle change in input */}
+                <Form.Control size="lg" type="text" placeholder="Enter reply" value={this.state.user} onChange={this.handleChange} style={{width: 700}} />
+                <Button variant="info" size="lg" type="submit">Submit</Button> {/* Form and Button from react-bootstrap */}
+            </div>
+            </Form>
+        </div>
+
     </div>
   );
 }

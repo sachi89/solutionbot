@@ -27,7 +27,6 @@ class App extends React.Component
       <div> {/* render must be followed with div tag. */}
           <Nav /> {/* Nav bar component */}
           <Chatbox />
-          
       </div>
     );
   }
