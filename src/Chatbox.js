@@ -28,6 +28,7 @@ class Chatbox extends React.Component
           i: 0 // set initial state of i to 0 so that its state can be updated later
         };
 
+
     }
 
     // handles event listener for onChange, when user types input
@@ -39,12 +40,13 @@ class Chatbox extends React.Component
 
     //handles event listener for onSubmit, when user submits form
     handleClick= (e) => {
+        //preventDefault method is called on the event to prevent a browser reload or refresh when the form is submitted
+        e.preventDefault();
         //if user input is not empty when submitted
           if (this.state.user !== "") {
-              //preventDefault method is called on the event to prevent a browser reload or refresh when the form is submitted
-              e.preventDefault();
-
-              //update state of objects and variables
+              //if index i is less than length of response list
+              if (i < bot.length) {
+                  //update state of objects and variables
               this.setState(
                 {
                     // set user to an empty string to reset value in input box to empty after click
@@ -59,8 +61,25 @@ class Chatbox extends React.Component
                     i: i+=1
                 }
               );
+              //if i reaches length of response list, reload page to start over
+              } else {
+                  window.location.reload();
+              }
           }
-  }
+    }
+
+    scrollToBottom = () => {
+    this.messagesEnd.scrollIntoView({ behavior: "smooth" });
+    }
+
+    componentDidMount() {
+    this.scrollToBottom();
+    }
+
+    componentDidUpdate() {
+    this.scrollToBottom();
+    }
+
 
   render()
   { // render method displays HTML to the UI by returning JSX code to the root element. Can read props and state.
@@ -74,23 +93,24 @@ class Chatbox extends React.Component
                 {/* grow from tachyons, other css from bootstrap */}
                 {/* container for the user and bot messages */}
                 {/* must use className instead of class in JSX because class is a reserved word in JavaScript */}
-                <div className = "d-flex">
-                    <div className="row">
-                        <div id="bot" className="">
+
+                        <div id="bot">
                             {/* text bubble */}
                             <div className="bubble m-3 float-start grow">
                                 <Delay> {/* Delay component used to hide response until set time runs out. Then shows child prop */}
                                 <p style={replystyle}> Hello, I'm SolutionBot. I'm here to help you find a solution to your problem using Solution Focused Brief Therapy. Before we begin, can I have your name please? </p>
                                 </Delay>
                             </div>
-
                         </div>
                         {/* prints the array of responses*/}
                         {this.state.replies}
-                    </div>
-                </div>
+                        {/* empty space */}
+                        <p id="third"></p>
+                        {/* ref element that is scrolled into view with scrollToBottom function */}
+                        <div id="fourth" ref={(el) => { this.messagesEnd = el; }}></div>
             </div>
         </center>
+
 
         <div className="textfield d-flex justify-content-center">
             <Form className="App" onSubmit={this.handleClick}> {/* event listener to handle form submission */}

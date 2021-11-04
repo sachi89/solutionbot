@@ -3,7 +3,7 @@ export const bot = [
     {id: 1, response: "Okay, and how would you define the problem that you are seeking help for?"},
     {id: 2, response: "How often does this problem affect you?"},
     {id: 3, response: "How long has it been going on?"},
-    {id: 4, response: "What is said or done when this problem occurs?"},
+    {id: 4, response: "What is said or done when this problem occurs?"}/*,
     {id: 5, response: "What happens next?"},
     {id: 6, response: "How have you dealt with it in the past?"},
     {id: 7, response: "How have you already tried to address this problem?"},
@@ -34,5 +34,5 @@ export const bot = [
     {id: 32, response: "What else helps?"},
     {id: 33, response: "Is there anyone else who helps you with this problem?"},
     {id: 34, response: "How do these people help you with the problem?"},
-    {id: 35, response: "I’m going to ask you a kind of strange question now. Suppose you go to sleep tonight as  usual and while you are asleep a miracle happens and the problem that brought you  here today is solved. But you are asleep and don’t know that it has been solved. What  will be the first small signs that this miracle has happened, and that the problem has been solved?"}
+    {id: 35, response: "I’m going to ask you a kind of strange question now. Suppose you go to sleep tonight as  usual and while you are asleep a miracle happens and the problem that brought you  here today is solved. But you are asleep and don’t know that it has been solved. What  will be the first small signs that this miracle has happened, and that the problem has been solved?"}*/
 ];
