@@ -1,10 +1,10 @@
 #infobox {
-  height: 700px;
-  width:70%;
+  height: 600px;
+  width:60%;
   background-color: rgba(255, 255, 255, .25);
   backdrop-filter: blur(5px);
   border-radius: 10px;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
-  overflow: hidden;
   font-family: lucida;
+  overflow: auto;
 }

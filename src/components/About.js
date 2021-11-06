@@ -9,7 +9,7 @@ function About() {
     <div>
         <center>
             <div id="infobox" className="p-5 m-5 mt-3 justify-content-center">
-                <div className="w-50 grow">
+                <div className="grow">
                     <h1>About:</h1>
                     <h5>SolutionBot is a therapeutic chatbot that uses Solution Focused Brief Therapy (SFBT) to help you identify solutions or skills you already have to reduce stressors and make changes for a better future.</h5>
                     <p></p>
@@ -19,7 +19,7 @@ function About() {
                     <p></p>
                     <h5>SFBT can be applied to most age groups and a variety of issues, including but not limited to relationship problems, some behavioral issues and mental health disorders, academic issues, and achieving goals.</h5>
                 </div>
-                <div className="w-50 grow">
+                <div className="grow">
                     <h1>Disclaimer:</h1>
                     <h5>SolutionBot is not intended to treat or diagnose mental health disorders or any clinical disorder.</h5>
                     <p></p>
