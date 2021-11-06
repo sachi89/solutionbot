@@ -1,10 +1,12 @@
 import React from 'react';
-import './Chatbox.css';
+import '../styles/Chatbox.css';
 import Delay from './Delay';
-import './TextBubble.css';
+import '../styles/TextBubble.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { bot } from './bot';
+
+//component for chatbot
 
 //initialize i to 0 to use as index for bot response
 let i = 0;
@@ -56,7 +58,7 @@ class Chatbox extends React.Component
                     //replies array copies styled and formatted user input and bot responses in jsx tags and css to be rendered
                     replies: [...this.state.replies, <div id="user"><div className="bubble m-3 float-end grow">
                     <p style={replystyle}> {this.state.user} </p></div></div>,
-                    <div id="bot" className=""><div className="bubble m-3 float-start grow"><Delay><p style={replystyle}> {i==0 ? this.state.user : ''}{bot[i].response} </p></Delay></div></div>],
+                    <div id="bot" className=""><div className="bubble m-3 float-start grow"><Delay><p style={replystyle}> {i===0 ? this.state.user : ''}{bot[i].response} </p></Delay></div></div>],
                     // increment value of i for index of bot response
                     i: i+=1
                 }
@@ -67,15 +69,15 @@ class Chatbox extends React.Component
               }
           }
     }
-
+    //function to scroll into view of referenced element at bottom of responses
     scrollToBottom = () => {
     this.messagesEnd.scrollIntoView({ behavior: "smooth" });
     }
-
+    //react lifecycle method. If componenet did mount use scrollToBottom function
     componentDidMount() {
     this.scrollToBottom();
     }
-
+    //react lifecycle method. If componenet did update use scrollToBottom function
     componentDidUpdate() {
     this.scrollToBottom();
     }
@@ -89,7 +91,7 @@ class Chatbox extends React.Component
   return(
     <div>
         <center>
-            <div id="chatbox" className="row p-5 m-5 d-flex justify-content-center">
+            <div id="chatbox" className="row p-5 m-5 mt-3 d-flex justify-content-center">
                 {/* grow from tachyons, other css from bootstrap */}
                 {/* container for the user and bot messages */}
                 {/* must use className instead of class in JSX because class is a reserved word in JavaScript */}
@@ -111,7 +113,7 @@ class Chatbox extends React.Component
             </div>
         </center>
 
-
+        {/* form container */}
         <div className="textfield d-flex justify-content-center">
             <Form className="App" onSubmit={this.handleClick}> {/* event listener to handle form submission */}
             <div className="d-grid gap-2"> {/* event listener to handle change in input */}
