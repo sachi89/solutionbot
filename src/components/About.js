@@ -25,6 +25,10 @@ function About() {
                     <p></p>
                     <h5>If you have a serious mental illness, are experiencing severe symptoms, or if this is an emergency, please seek professional help immediately.</h5>
                 </div>
+                <div className="grow">
+                    <h1>Confidentiality and Privacy Statement:</h1>
+                    <h5>All information you share will be kept confidential. Information you share will not be saved and will be permanently deleted upon termination of the therapy session.</h5>
+                </div>
             </div>
         </center>
     </div>
