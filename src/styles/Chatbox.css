@@ -1,10 +1,40 @@
+/* css for Chatbox and Loading components */
+
+/* customization for chatbox container */
 #chatbox {
   height: 600px;
   width:60%;
-  background-color: rgba(255, 255, 255, .15);
+  background-color: rgba(255, 255, 255, .20);
+  /*  blur with white and low opaque background creates glass effect for container */
   backdrop-filter: blur(5px);
   border-radius: 10px;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
   flex: 1;
+  /* creates scrollbar on overflow */
   overflow: auto;
+  font-size: 18px;
+}
+
+/* buttons for input options and submit */
+.opbutton {
+  background-color: rgb(224, 224, 224);
+  backdrop-filter: blur(5px);
+  font-size: 20px;
+  margin: 2px;
+  padding: 0.5rem;
+  text-align: center;
+  border-radius: 13px;
+  border-color: white;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+
+/* change color on hover for input options and submit buttons */
+.opbutton:hover {
+  background: #00e2ff;
+}
+
+/* customize loading dots from child Loading component */
+.dots {
+  font-weight: bold;
+  font-size: 20px;
 }

@@ -1,12 +1,22 @@
+/* css for bot and user text bubble components */
+
+/* customization for text bubbles */
+.bubble {
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+  border-radius:15px;
+}
+
+/* customization for text in text bubbles */
 .bubble p {
   margin: 2px;
 }
-.bubble {
-  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
-}
+
+/* color for user text bubble */
 #user .bubble {
-  background: #00e2ff; border-radius:15px;
+  background: #00e2ff;
 }
+
+/* color for bot text bubble */
 #bot .bubble {
-  background: #1c72d7; border-radius:15px; color:white;
+  background: #1c72d7;  color:white;
 }

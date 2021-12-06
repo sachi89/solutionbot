@@ -1,5 +1,5 @@
 export const bot = [
-    {id: 0, response: ", it's nice to meet you. So, what do you hope to get out of being here today?"},
+    {id: 0, response: ", it's nice to meet you. So, what problem brings you here today?"},
     {id: 1, response: "Okay, and how would you define your problem?"},
     {id: 2, response: "How often does this problem occur?"},
     {id: 3, response: "How long has this problem been occurring?"},

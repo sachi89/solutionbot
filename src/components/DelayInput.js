@@ -1,9 +1,7 @@
 import React from 'react';
-import BotBubble from './BotBubble';
-import Loading from './Loading';
 
-//Delay component for bot responses with loading dots
-class Delay extends React.Component
+//Delay component for input options
+class DelayInput extends React.Component
 { //when using state in React, need to set up constructor
     constructor(props) { // used to initialize local state. Not needed if state not being used.
         super(props); // needs to be called or else this.props will be undefined
@@ -19,10 +17,10 @@ class Delay extends React.Component
        }, 1500); //timeout set at 1500
    }
 
-   //if hidden is true renders bot bubble with loading dots from Loading component, if hidden is false renders children
+   //if hidden is true renders ' ', if hidden is false renders children
    render() {
-       return this.state.hidden ? <BotBubble><Loading></Loading></BotBubble> : this.props.children;
+       return this.state.hidden ? '' : this.props.children;
    }
 }
 
-export default Delay;
+export default DelayInput;

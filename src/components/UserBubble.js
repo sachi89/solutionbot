@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/TextBubble.css';
+import { FaRegUserCircle } from 'react-icons/fa';
 
 //component for user response textbubble
 
@@ -21,9 +22,14 @@ class UserBubble extends React.Component
    render() {
     return (
         <div>
-            <div id="user">
-                <div className="bubble m-3 float-end grow">
-                    <p style={replystyle}>{this.props.children}</p>
+            <div id="user">      
+                <div className="d-flex float-end grow">   
+                    {/* user text bubble */}
+                    <div className="bubble m-3">
+                        <p style={replystyle}>{this.props.children}</p>
+                    </div>
+                    {/* user icon from react-icons */}
+                    <div className="p-2" style={{color:"#00e2ff"}}><FaRegUserCircle size={24} /></div>
                 </div>
             </div>
         </div>

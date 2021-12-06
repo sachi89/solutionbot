@@ -4,7 +4,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 //component for About content
 
-function About() {
+function About() 
+{
   return (
     <div>
         <center>
