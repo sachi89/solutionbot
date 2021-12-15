@@ -82,6 +82,15 @@ class Chatbox extends React.Component
   { // Render method displays HTML to the UI by returning JSX code to the root element. Can read props and state.
     // JSX (JavaScript XML) is used to write HTML within the JavaScript code in React, using JavaScript. It is a syntax extension of JavaScript.
     // Comments for jsx written within {/*  */}
+    //arrays of values to iterate input buttons using map()
+      const issues = ["relationship", "family", "mental health", "acedemic", "work", "legal", "personal", "other"];
+      const freq = ["always", "frequently", "sometimes", "occassionally", "rarely"];
+      const duration = ["a few days","weeks","months","a year","more than a year"];
+      const effect = ["better","worse"];
+      const yesno = ["yes","no"];
+      const scale1 = [0,1,2,3,4,5,6,7,8,9,10];
+      const scale2 = [1,2,3,4,5,6,7,8,9];
+      const diff = ["a lot", "a little", "none"];
     return(
       <div>
         <center>
@@ -104,157 +113,65 @@ class Chatbox extends React.Component
           <Form className="App" onSubmit={this.handleClick}> {/* event listener to handle form submission */}
             {(() => {
               switch (i) { // Switch statement to switch between input types (text or button options) based on bot response index
-                case 1:
-                    return (
-                      <div className="d-grid gap-2">
-                      <DelayInput>
-                        <FormControl component="fieldset">
-                          <div className="btn p-3">
-                            <input className="opbutton p-3 m-3" value="relationship" onClick={this.handleChange} type="submit"/>
-                            <input className="opbutton p-3 m-3" value="family" onClick={this.handleChange} type="submit"/>
-                            <input className="opbutton p-3 m-3" value="mental health" onClick={this.handleChange} type="submit"/>
-                            <input className="opbutton p-3 m-3" value="acedemic" onClick={this.handleChange} type="submit"/>
-                            <input className="opbutton p-3 m-3" value="work" onClick={this.handleChange} type="submit"/>
-                            <input className="opbutton p-3 m-3" value="legal" onClick={this.handleChange} type="submit"/>
-                            <input className="opbutton p-3 m-3" value="personal" onClick={this.handleChange} type="submit"/>
-                            <input className="opbutton p-3 m-3" value="other" onClick={this.handleChange} type="submit"/>
-                          </div>
-                        </FormControl>
-                      </DelayInput>
-                      </div>
-                    )
+                case 1:    //map() iterates input buttons with array of values
+                  return (
+                    <div className="d-grid gap-2"><DelayInput><FormControl component="fieldset"><div className="btn p-3">
+                      {issues.map((issues) => <input className="opbutton p-3 m-3" value={issues} onClick={this.handleChange} type="submit"/>)}
+                    </div></FormControl></DelayInput></div>
+                  )
                 case 3:
-                    return (
-                      <div className="d-grid gap-2">
-                      <DelayInput>
-                        <FormControl component="fieldset">
-                          <div className="btn p-3">
-                            <input className="opbutton p-3 m-3" value="always" onClick={this.handleChange} type="submit"/>
-                            <input className="opbutton p-3 m-3" value="frequently" onClick={this.handleChange} type="submit"/>
-                            <input className="opbutton p-3 m-3" value="sometimes" onClick={this.handleChange} type="submit"/>
-                            <input className="opbutton p-3 m-3" value="occassionally" onClick={this.handleChange} type="submit"/>
-                            <input className="opbutton p-3 m-3" value="rarely" onClick={this.handleChange} type="submit"/>
-                          </div>
-                        </FormControl>
-                      </DelayInput>
-                      </div>
-                    )
-                  case 4:
-                    return (
-                      <div className="d-grid gap-2">
-                      <DelayInput>
-                        <FormControl component="fieldset">
-                          <div className="btn p-3">
-                            <input className="opbutton p-3 m-3" value="a few days" onClick={this.handleChange} type="submit"/>
-                            <input className="opbutton p-3 m-3" value="weeks" onClick={this.handleChange} type="submit"/>
-                            <input className="opbutton p-3 m-3" value="months" onClick={this.handleChange} type="submit"/>
-                            <input className="opbutton p-3 m-3" value="a year" onClick={this.handleChange} type="submit"/>
-                            <input className="opbutton p-3 m-3" value="more than a year" onClick={this.handleChange} type="submit"/>
-                          </div>
-                        </FormControl>
-                      </DelayInput>
-                      </div>
-                    )
-                    case 10:
-                      return (
-                        <div className="d-grid gap-2">
-                        <DelayInput>
-                          <FormControl component="fieldset">
-                            <div className="btn p-3">
-                              <input className="opbutton p-3 m-3" value="better" onClick={this.handleChange} type="submit"/>
-                              <input className="opbutton p-3 m-3" value="worse" onClick={this.handleChange} type="submit"/>
-                            </div>
-                          </FormControl>
-                        </DelayInput>
-                        </div>
-                      )
-                      case 14:
-                        return (
-                          <div className="d-grid gap-2">
-                            <DelayInput>
-                            <FormControl component="fieldset">
-                              <div className="btn p-3">
-                                <input className="opbutton p-3 m-3" value="yes" onClick={this.handleChange} type="submit"/>
-                                <input className="opbutton p-3 m-3" value="no" onClick={this.handleChange} type="submit"/>
-                              </div>
-                            </FormControl>
-                            </DelayInput>
-                          </div>
-                        )
-                      case 16:
-                        return (
-                          <div className="d-grid gap-2">
-                            <DelayInput>
-                            <FormControl component="fieldset">
-                              <div className="btn p-3">
-                                <input className="opbutton p-3 m-3" value="yes" onClick={this.handleChange} type="submit"/>
-                                <input className="opbutton p-3 m-3" value="no" onClick={this.handleChange} type="submit"/>
-                              </div>
-                            </FormControl>
-                            </DelayInput>
-                          </div>
-                        )
-                      case 17:
-                        return (
-                          <div className="d-grid gap-2">
-                          <DelayInput>
-                            <FormControl component="fieldset">
-                              <div className="btn p-3">
-                                <input className="opbutton p-3 m-3" value="0" onClick={this.handleChange} type="submit"/>
-                                <input className="opbutton p-3 m-3" value="1" onClick={this.handleChange} type="submit"/>
-                                <input className="opbutton p-3 m-3" value="2" onClick={this.handleChange} type="submit"/>
-                                <input className="opbutton p-3 m-3" value="3" onClick={this.handleChange} type="submit"/>
-                                <input className="opbutton p-3 m-3" value="4" onClick={this.handleChange} type="submit"/>
-                                <input className="opbutton p-3 m-3" value="5" onClick={this.handleChange} type="submit"/>
-                                <input className="opbutton p-3 m-3" value="6" onClick={this.handleChange} type="submit"/>
-                                <input className="opbutton p-3 m-3" value="7" onClick={this.handleChange} type="submit"/>
-                                <input className="opbutton p-3 m-3" value="8" onClick={this.handleChange} type="submit"/>
-                                <input className="opbutton p-3 m-3" value="9" onClick={this.handleChange} type="submit"/>
-                                <input className="opbutton p-3 m-3" value="10" onClick={this.handleChange} type="submit"/>
-                              </div>
-                            </FormControl>
-                            </DelayInput>
-                          </div>
-                        )
-                      case 18:
-                        return (
-                          <div className="d-grid gap-2">
-                            <DelayInput>
-                            <FormControl component="fieldset">
-                              <div className="btn p-3">
-                                <input className="opbutton p-3 m-3" value="1" onClick={this.handleChange} type="submit"/>
-                                <input className="opbutton p-3 m-3" value="2" onClick={this.handleChange} type="submit"/>
-                                <input className="opbutton p-3 m-3" value="3" onClick={this.handleChange} type="submit"/>
-                                <input className="opbutton p-3 m-3" value="4" onClick={this.handleChange} type="submit"/>
-                                <input className="opbutton p-3 m-3" value="5" onClick={this.handleChange} type="submit"/>
-                                <input className="opbutton p-3 m-3" value="6" onClick={this.handleChange} type="submit"/>
-                                <input className="opbutton p-3 m-3" value="7" onClick={this.handleChange} type="submit"/>
-                                <input className="opbutton p-3 m-3" value="8" onClick={this.handleChange} type="submit"/>
-                                <input className="opbutton p-3 m-3" value="9" onClick={this.handleChange} type="submit"/>
-                              </div>
-                            </FormControl>
-                            </DelayInput>
-                          </div>
-                        )
-                      case 30:
-                        return (
-                          <div className="d-grid gap-2">
-                            <DelayInput>
-                            <FormControl component="fieldset">
-                              <div className="btn p-3">
-                                <input className="opbutton p-3 m-3" value="a lot" onClick={this.handleChange} type="submit"/>
-                                <input className="opbutton p-3 m-3" value="a little" onClick={this.handleChange} type="submit"/>
-                                <input className="opbutton p-3 m-3" value="none" onClick={this.handleChange} type="submit"/>
-                              </div>
-                            </FormControl>
-                            </DelayInput>
-                          </div>
-                        )
-                default:
-                    return (
-                      <div><div className="d-grid gap-2"><Form.Control size="lg" type="text" placeholder="Enter reply" value={this.state.user} onChange={this.handleChange} style={{width: 700}} />
-                      <input className="opbutton" type="submit"/></div></div>
-                    )
+                  return (
+                    <div className="d-grid gap-2"><DelayInput><FormControl component="fieldset"><div className="btn p-3">
+                      {freq.map((freq) => <input className="opbutton p-3 m-3" value={freq} onClick={this.handleChange} type="submit"/>)}
+                    </div></FormControl></DelayInput></div>
+                  )
+                case 4:
+                  return (
+                    <div className="d-grid gap-2"><DelayInput><FormControl component="fieldset"><div className="btn p-3">
+                      {duration.map((duration) => <input className="opbutton p-3 m-3" value={duration} onClick={this.handleChange} type="submit"/>)}
+                    </div></FormControl></DelayInput></div>
+                  )
+                case 10:
+                  return (
+                    <div className="d-grid gap-2"><DelayInput><FormControl component="fieldset"><div className="btn p-3">
+                      {effect.map((effect) => <input className="opbutton p-3 m-3" value={effect} onClick={this.handleChange} type="submit"/>)}
+                    </div></FormControl></DelayInput></div>
+                  )
+                case 14:
+                  return (
+                    <div className="d-grid gap-2"><DelayInput><FormControl component="fieldset"><div className="btn p-3">
+                      {yesno.map((yesno) => <input className="opbutton p-3 m-3" value={yesno} onClick={this.handleChange} type="submit"/>)}
+                    </div></FormControl></DelayInput></div>
+                  )
+                case 16:
+                  return (
+                    <div className="d-grid gap-2"><DelayInput><FormControl component="fieldset"><div className="btn p-3">
+                      {yesno.map((yesno) => <input className="opbutton p-3 m-3" value={yesno} onClick={this.handleChange} type="submit"/>)}
+                    </div></FormControl></DelayInput></div>
+                  )
+                case 17:
+                  return (
+                    <div className="d-grid gap-2"><DelayInput><FormControl component="fieldset"><div className="btn p-3">
+                      {scale1.map((scale1) => <input className="opbutton p-3 m-3" value={scale1} onClick={this.handleChange} type="submit"/>)}
+                    </div></FormControl></DelayInput></div>
+                  )
+                case 18:
+                  return (
+                    <div className="d-grid gap-2"><DelayInput><FormControl component="fieldset"><div className="btn p-3">
+                      {scale2.map((scale2) => <input className="opbutton p-3 m-3" value={scale2} onClick={this.handleChange} type="submit"/>)}
+                    </div></FormControl></DelayInput></div>
+                  )
+                case 30:
+                  return (
+                    <div className="d-grid gap-2"><DelayInput><FormControl component="fieldset"><div className="btn p-3">
+                      {diff.map((diff) => <input className="opbutton p-3 m-3" value={diff} onClick={this.handleChange} type="submit"/>)}
+                    </div></FormControl></DelayInput></div>
+                  )
+              default:
+                  return (
+                    <div><div className="d-grid gap-2"><Form.Control size="lg" type="text" placeholder="Enter reply" value={this.state.user} onChange={this.handleChange} style={{width: 700}} />
+                    <input className="opbutton" type="submit"/></div></div>
+                  )
               }
             })()}
           </Form>
