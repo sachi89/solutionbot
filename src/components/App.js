@@ -16,26 +16,26 @@ class App extends React.Component
         super(props); // needs to be called or else this.props will be undefined
         //initializing objects with their initial state
         this.state = { //assigns objects to this.state
-            data: null
+            // data: null
         };
-    }
-
-    componentDidMount() {
-    // Call fetch function when component mounts
-        this.callBackendAPI()
-            .then(res => this.setState({ data: res.message }))
-            .catch(err => console.log(err));
-    }
-    // Fetch GET route from the Express server
-    callBackendAPI = async () => {
-        const response = await fetch('/');
-        const body = await response.json();
-
-        if (response.status !== 200) {
-            throw Error(body.message)
-        }
-        return body;
     };
+
+    // componentDidMount() {
+    // // Call fetch function when component mounts
+    //     this.callBackendAPI()
+    //         .then(res => this.setState({ data: res.message }))
+    //         .catch(err => console.log(err));
+    // }
+    // // Fetch GET route from the Express server
+    // callBackendAPI = async () => {
+    //     const response = await fetch('/');
+    //     const body = await response.json();
+
+    //     if (response.status !== 200) {
+    //         throw Error(body.message)
+    //     }
+    //     return body;
+    // };
 
 
   render()
