@@ -52,6 +52,9 @@ class App extends React.Component
                     <Route exact path="/"> {/* routes to path closest to the indicated path */}
                         <Chatbox />
                     </Route>
+                    <Route exact path="/AiChatbot"> {/* must put exact or else will route to closest path "/" */}
+                        <AiChatbot />
+                    </Route>
                     <Route exact path="/About"> {/* must put exact or else will route to closest path "/" */}
                         <About />
                     </Route>

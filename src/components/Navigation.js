@@ -23,7 +23,9 @@ function Navigation() {
               <Nav className="navigation">
               {/*Link component from react-router-dom used to route to different components*/}
                 {/* links to Chatbox component */}
-                <Nav.Link> <Link to={"/"}><h2 style={{fontFamily:"sans-serif", textDecorationLine: "none", color:"black", paddingLeft:"40px"}}>Chat</h2></Link></Nav.Link>
+                <Nav.Link> <Link to={"/"}><h2 style={{fontFamily:"sans-serif", textDecorationLine: "none", color:"black", paddingLeft:"40px"}}>Chatbot</h2></Link></Nav.Link>
+                {/* links to ai Chatbox component */}
+                <Nav.Link> <Link to={"/AiChatbot"}><h2 style={{fontFamily:"sans-serif", textDecorationLine: "none", color:"black", paddingLeft:"40px"}}>AI Chatbot</h2></Link></Nav.Link>
                 {/* links to About component */}
                 <Nav.Link> <Link to={"/About"}><h2 style={{fontFamily:"sans-serif",color:"black", paddingLeft:"20px"}}>About</h2></Link></Nav.Link>
               </Nav>
