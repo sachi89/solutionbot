@@ -12,10 +12,10 @@ function Navigation() {
         <div>
             <Navbar expand="lg"> {/* navbar and nav from react-bootstrap */}
             {/* SolutionBot logo and link to homepage */}
-            <Navbar.Brand href="/">
-            <div className='d-flex' style={{alignItems:"center"}}>
-            <SiProbot style={{marginLeft:"20px", marginBottom:"10px",width:"40px", height:"40px", color:"darkblue" }}/>
-            <h1 style={{fontFamily:"sans-serif",color:"black", paddingLeft:"10px"}}>SolutionBot</h1>
+            <Navbar.Brand href="/Chatbox">
+            <div className='d-flex'>
+            <SiProbot style={{marginLeft:"20px",width:"40px", height:"32px", color:"darkblue" }}/>
+            <h2 style={{fontFamily:"sans-serif",color:"black", paddingLeft:"10px"}}>SolutionBot</h2>
             </div>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -23,11 +23,11 @@ function Navigation() {
               <Nav className="navigation">
               {/*Link component from react-router-dom used to route to different components*/}
                 {/* links to Chatbox component */}
-                <Nav.Link> <Link to={"/"}><h2 style={{fontFamily:"sans-serif", textDecorationLine: "none", color:"black", paddingLeft:"40px"}}>Chatbot</h2></Link></Nav.Link>
+                <Nav.Link> <Link to={"/Chatbox"}><h3 style={{fontFamily:"sans-serif", textDecorationLine: "none", color:"black", paddingLeft:"20px"}}>Chatbot</h3></Link></Nav.Link>
                 {/* links to ai Chatbox component */}
-                <Nav.Link> <Link to={"/AiChatbot"}><h2 style={{fontFamily:"sans-serif", textDecorationLine: "none", color:"black", paddingLeft:"40px"}}>AI Chatbot</h2></Link></Nav.Link>
+                <Nav.Link> <Link to={"/AiChatbot"}><h3 style={{fontFamily:"sans-serif", textDecorationLine: "none", color:"black", paddingLeft:"20px"}}>AI Chatbot</h3></Link></Nav.Link>
                 {/* links to About component */}
-                <Nav.Link> <Link to={"/About"}><h2 style={{fontFamily:"sans-serif",color:"black", paddingLeft:"20px"}}>About</h2></Link></Nav.Link>
+                <Nav.Link> <Link to={"/About"}><h3 style={{fontFamily:"sans-serif",color:"black", paddingLeft:"20px"}}>About</h3></Link></Nav.Link>
               </Nav>
             </Navbar.Collapse>
           </Navbar>

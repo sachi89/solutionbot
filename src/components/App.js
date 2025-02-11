@@ -7,6 +7,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import AiChatbot from './AiChatbot';
 import About from './About';
 
 //when using state in React, need to set up constructor
@@ -50,6 +51,12 @@ class App extends React.Component
               <Navigation /> {/* navigation bar component with links to component paths */}
                 <Switch> {/* switches paths for components using react router */}
                     <Route exact path="/"> {/* routes to path closest to the indicated path */}
+                        <Chatbox />
+                    </Route>
+                    <Route exact path="/solutionbot"> {/* routes to path closest to the indicated path */}
+                        <Chatbox />
+                    </Route>
+                    <Route exact path="/Chatbox"> {/* routes to path closest to the indicated path */}
                         <Chatbox />
                     </Route>
                     <Route exact path="/AiChatbot"> {/* must put exact or else will route to closest path "/" */}

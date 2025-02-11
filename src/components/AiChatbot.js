@@ -1,4 +1,3 @@
-import {useEffect, useState} from React;
 import '../styles/Chatbox.css';
 import DelayInput from './DelayInput';
 import Delay from './Delay';
@@ -7,30 +6,27 @@ import BotBubble from './BotBubble';
 import Form from 'react-bootstrap/Form';
 import FormControl from '@material-ui/core/FormControl';
 import { bot } from './bot';
+import {useState, useEffect, useRef} from 'react';
 
 //component for chatbot
 
-//initialize i to 0 to use as index for bot response
-let i = 0;
-
-import React, { useState, useEffect } from 'react';
-
 function AiChatbot() {
     // Declare state variables using useState hook
+    const [i, setIndex] = useState(0);
+    const [data, setData] = useState(null);
     const [user, setUser] = useState('');
     const [replies, setReplies] = useState(i===0 ? <Delay> {/* Delay component used to hide response until set time runs out. Then shows child prop */}
     <BotBubble>{/* BotBubble component displays JSX elements around child prop */}
         Hello, I'm SolutionBot. I'm here to help you find a solution to your problem using Solution Focused Brief Therapy. Before we begin, can I have your name please?
     </BotBubble></Delay> : '');
-    const [i, setIndex] = useState(0);
-    const [data, setData] = useState(null);
+
 
   // Use useEffect hook for side effects, such as data fetching or DOM manipulation
   useEffect(() => {
     // This function will run after the component renders
     // It can be used to perform actions that are not directly related to rendering
     // For example, fetching data from an API
-    async function fetchData() {
+    const fetchData = async () => {
       const response = await fetch('http://localhost:5000/chat?text=${user}&session_id=${i}');
       const jsonData = await response.json();
     
@@ -45,21 +41,30 @@ function AiChatbot() {
   }, []);
 
   //function to automatically scroll into view of referenced element at bottom of responses
-  autoScroll = () => {
-    this.bottomResponse.scrollIntoView({ behavior: "smooth" });
+  
+  const targetElement = useRef();
+  const autoScroll = () => {
+    const elmnt = targetElement;
+    elmnt.current.scrollIntoView({ behavior: "smooth" });
     }
 
     // handles event listener for onChange, when user types input
-    handleChange= (e) => { // by using arrow functions, no need to bind methods
+    const handleChange= (e) => { // by using arrow functions, no need to bind methods
     //setState used to update the initial state of the object
     //when input typed, sets state of user object as the current input value from the event. e = event.
     setUser(e.target.value);
     }
 
     //handles event listener for onSubmit, when user submits form
-    handleClick= (e) => {
+    const handleClick = (e) => {
         //preventDefault method is called on the event to prevent a browser reload or refresh when the form is submitted
         e.preventDefault();
+        const fetchData = async () => {
+          const response = await fetch('http://localhost:5000/chat?text=${user}&session_id=${i}');
+          const jsonData = await response.json();
+        
+          setData(jsonData);
+        }
         //if user input is not empty when submitted
         if (user !== "") {        
         //update state of objects and variables
@@ -88,16 +93,16 @@ function AiChatbot() {
               <p id="third"></p>
               <div className="p-4">
                 {/* reference element that is scrolled into view with autoScroll function */}
-                <div id="fourth" ref={(el) => { this.bottomResponse = el; }}></div>
+                <div id="fourth" ref={targetElement}></div>
               </div>
           </div>
         </center>
 
         {/* form container */}
         <div className="textfield d-flex justify-content-center">
-          <Form className="App" onSubmit={handleClick()}> {/* event listener to handle form submission */}
-                    <div><div className="d-grid gap-2"><Form.Control size="lg" type="text" placeholder="Enter reply" value={this.state.user} onChange={this.handleChange} style={{width: 700}} />
-                    <input className="opbutton" type="submit"/></div></div>                  
+          <Form className="App"> {/* event listener to handle form submission */}
+                    <div><div className="d-grid gap-2"><Form.Control size="lg" type="text" placeholder="Enter reply" value={user} onChange={handleChange} style={{width: 700}} />
+                    <input className="opbutton" type="button" onClick={handleClick}/></div></div>                  
           </Form>
         </div>
       </div>
