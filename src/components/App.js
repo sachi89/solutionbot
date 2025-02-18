@@ -51,16 +51,16 @@ class App extends React.Component
               <Navigation /> {/* navigation bar component with links to component paths */}
                 <Switch> {/* switches paths for components using react router */}
                     <Route exact path="/"> {/* routes to path closest to the indicated path */}
-                        <Chatbox />
+                        <AiChatbot />
                     </Route>
                     <Route exact path="/solutionbot"> {/* routes to path closest to the indicated path */}
-                        <Chatbox />
+                        <AiChatbot />
+                    </Route>                    
+                    <Route exact path="/AiChatbot"> {/* must put exact or else will route to closest path "/" */}
+                        <AiChatbot />
                     </Route>
                     <Route exact path="/Chatbox"> {/* routes to path closest to the indicated path */}
                         <Chatbox />
-                    </Route>
-                    <Route exact path="/AiChatbot"> {/* must put exact or else will route to closest path "/" */}
-                        <AiChatbot />
                     </Route>
                     <Route exact path="/About"> {/* must put exact or else will route to closest path "/" */}
                         <About />

@@ -12,7 +12,7 @@ function Navigation() {
         <div>
             <Navbar expand="lg"> {/* navbar and nav from react-bootstrap */}
             {/* SolutionBot logo and link to homepage */}
-            <Navbar.Brand href="/Chatbox">
+            <Navbar.Brand>
             <div className='d-flex'>
             <SiProbot style={{marginLeft:"20px",width:"40px", height:"32px", color:"darkblue" }}/>
             <h2 style={{fontFamily:"sans-serif",color:"black", paddingLeft:"10px"}}>SolutionBot</h2>
@@ -22,10 +22,10 @@ function Navigation() {
               <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="navigation">
               {/*Link component from react-router-dom used to route to different components*/}
-                {/* links to Chatbox component */}
-                <Nav.Link> <Link to={"/Chatbox"}><h3 style={{fontFamily:"sans-serif", textDecorationLine: "none", color:"black", paddingLeft:"20px"}}>Chatbot</h3></Link></Nav.Link>
                 {/* links to ai Chatbox component */}
                 <Nav.Link> <Link to={"/AiChatbot"}><h3 style={{fontFamily:"sans-serif", textDecorationLine: "none", color:"black", paddingLeft:"20px"}}>AI Chatbot</h3></Link></Nav.Link>
+                {/* links to Chatbox component */}
+                <Nav.Link> <Link to={"/Chatbox"}><h3 style={{fontFamily:"sans-serif", textDecorationLine: "none", color:"black", paddingLeft:"20px"}}>Rule-Based Chatbot</h3></Link></Nav.Link>
                 {/* links to About component */}
                 <Nav.Link> <Link to={"/About"}><h3 style={{fontFamily:"sans-serif",color:"black", paddingLeft:"20px"}}>About</h3></Link></Nav.Link>
               </Nav>

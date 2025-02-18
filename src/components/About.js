@@ -12,9 +12,9 @@ function About()
             <div id="infobox" className="p-5 m-5 mt-3 justify-content-center">
                 <div className="grow">
                     <h1>About:</h1>
-                    <h5>SolutionBot is a therapeutic chatbot that uses Solution Focused Brief Therapy (SFBT) to help you identify solutions or skills you already have to reduce stressors and make changes for a better future.</h5>
+                    <h5>SolutionBot is a therapeutic chatbot that uses Solution Focused Brief Therapy (SFBT) to help users identify skills and efficient solutions to relieve problems.</h5>
                     <p></p>
-                    <h5>SFBT is a brief therapy that can used in a single session.</h5>
+                    <h5>SFBT is a brief goal-oriented therapy that can used in a single session.</h5>
                     <p></p>
                     <h5>SFBT does not focus on past traumas or the problem itself but on the present and your preferred future.</h5>
                     <p></p>
@@ -25,10 +25,6 @@ function About()
                     <h5>SolutionBot is not intended to treat or diagnose mental health disorders or any clinical disorder.</h5>
                     <p></p>
                     <h5>If you have a serious mental illness, are experiencing severe symptoms, or if this is an emergency, please seek professional help immediately.</h5>
-                </div>
-                <div className="grow">
-                    <h1>Confidentiality and Privacy Statement:</h1>
-                    <h5>All information you share will be kept confidential. Information you share will not be saved and will be permanently deleted upon termination of the therapy session.</h5>
                 </div>
             </div>
         </center>

@@ -22,50 +22,35 @@ function AiChatbot() {
     {/* Delay component used to hide response until set time runs out. Then shows child prop */}
     {/* BotBubble component displays JSX elements around child prop */}
 
-const sendMessage = async (message) => {
-  try {
-    const response = await fetch('http://127.0.0.1:5000/chat', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message }),
-    });
-    const data = await response.json();
-    console.log(data.response);
-    setData(data.response);
-  } catch (error) {
-    console.error('Error:', error);
-  }
-};
+  useEffect(() => {
+    // call to clear memory api, to clear chatbot's memory when page is reloaded
+      fetch('http://127.0.0.1:5000/clear_memory', {
+        method: 'POST',
+      })
+      .then(response => response.json())
+      .then(data => console.log(data.message))
+      .catch(error => console.error('Error clearing memory:', error));
+    }, []);
 
-  // Use useEffect hook for side effects, such as data fetching or DOM manipulation
-  // useEffect(() => {
-    // This function will run after the component renders
-    // It can be used to perform actions that are not directly related to rendering
-    // For example, fetching data from an API
-    // const fetchData = async () => {
-    //   const response = await fetch('http://localhost:5000/chat?text=${user}&session_id=${i}');
-    //   const jsonData = await response.json();
-    // const sendMessage = async (message) => {
-    //   try {
-    //     const response = await fetch('http://127.0.0.1:5000/chat', {
-    //       method: 'POST',
-    //       headers: { 'Content-Type': 'application/json' },
-    //       body: JSON.stringify({ message }),
-    //     });
-    //     const data = await response.json();
-    //     console.log(data.response);
-    //     setData(data);
-    //   } catch (error) {
-    //     console.error('Error:', error);
-    //   }
-    // };
-
-    // sendMessage({user});
-
-    // Specify dependencies for the effect
-    // The effect will only run if any of the dependencies have changed
-    // If the dependency array is empty, the effect will only run once, after the initial render
-  // }, []);
+  const sendMessage = async (message) => {
+    if (i===0) {
+      message = 'My name is ' + message;
+    }
+    try {
+      const response = await fetch('http://127.0.0.1:5000/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message }),
+      });
+      const data = await response.json();
+      console.log(data.response);
+      setData(data.response);
+      setReplies([...replies, <UserBubble>{user}</UserBubble>,
+        <Delay><BotBubble>{data.response.replace('System:','')}</BotBubble></Delay>]);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
 
   //function to automatically scroll into view of referenced element at bottom of responses
   
@@ -84,10 +69,8 @@ const sendMessage = async (message) => {
 
     //handles event listener for onSubmit, when user submits form
     const handleClick = (e) => {      
-            sendMessage({user});
+            sendMessage(user);
             setIndex(i+1);                      
-            setReplies([...replies, <UserBubble>{user}</UserBubble>,
-            <Delay><BotBubble>{i===0 ? user + ', nice to meet you.' : ''}{data}</BotBubble></Delay>]);
             setUser(''); 
             autoScroll();    
     }   
