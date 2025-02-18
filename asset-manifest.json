@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/solutionbot/static/css/main.5aa36ccd.css",
+    "main.js": "/solutionbot/static/js/main.7ff1c07b.js",
+    "index.html": "/solutionbot/index.html",
+    "main.5aa36ccd.css.map": "/solutionbot/static/css/main.5aa36ccd.css.map",
+    "main.7ff1c07b.js.map": "/solutionbot/static/js/main.7ff1c07b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5aa36ccd.css",
+    "static/js/main.7ff1c07b.js"
+  ]
+}
