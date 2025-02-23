@@ -24,7 +24,7 @@ function AiChatbot() {
 
   useEffect(() => {
     // call to clear memory api, to clear chatbot's memory when page is reloaded
-      fetch('http://18.227.46.201:5000/clear_memory', {
+      fetch('http://3.15.223.229:5000/clear_memory', {
         method: 'POST',
       })
       .then(response => response.json())
@@ -37,7 +37,7 @@ function AiChatbot() {
       message = 'My name is ' + message;
     }
     try {
-      const response = await fetch('http://18.227.46.201:5000/chat', {
+      const response = await fetch('http://3.15.223.229:5000/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message }),
