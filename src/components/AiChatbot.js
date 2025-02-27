@@ -22,9 +22,11 @@ function AiChatbot() {
     {/* Delay component used to hide response until set time runs out. Then shows child prop */}
     {/* BotBubble component displays JSX elements around child prop */}
 
+    const apiUrl = process.env.REACT_APP_API_URL;
+
   useEffect(() => {
     // call to clear memory api, to clear chatbot's memory when page is reloaded
-      fetch('http://3.15.223.229/clear_memory', {
+      fetch('${apiUrl}/clear_memory', {
         method: 'POST',
       })
       .then(response => response.json())
@@ -37,7 +39,7 @@ function AiChatbot() {
       message = 'My name is ' + message;
     }
     try {
-      const response = await fetch('http://3.15.223.229/chat', {
+      const response = await fetch('${apiUrl}/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message }),
