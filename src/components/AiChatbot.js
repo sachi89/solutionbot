@@ -23,10 +23,11 @@ function AiChatbot() {
     {/* BotBubble component displays JSX elements around child prop */}
 
     const apiUrl = process.env.REACT_APP_API_URL;
+    console.log(apiUrl);
 
   useEffect(() => {
     // call to clear memory api, to clear chatbot's memory when page is reloaded
-      fetch('${apiUrl}/clear_memory', {
+      fetch('https://scali-tech.com/clear_memory', {
         method: 'POST',
       })
       .then(response => response.json())
@@ -39,7 +40,7 @@ function AiChatbot() {
       message = 'My name is ' + message;
     }
     try {
-      const response = await fetch('${apiUrl}/chat', {
+      const response = await fetch('https://scali-tech.com/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message }),
