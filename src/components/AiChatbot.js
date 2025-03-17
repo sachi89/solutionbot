@@ -22,13 +22,14 @@ function AiChatbot() {
     {/* Delay component used to hide response until set time runs out. Then shows child prop */}
     {/* BotBubble component displays JSX elements around child prop */}
 
-    const apiUrl = process.env.REACT_APP_API_URL;
-    console.log(apiUrl);
-
   useEffect(() => {
     // call to clear memory api, to clear chatbot's memory when page is reloaded
       fetch('https://scali-tech.com/clear_memory', {
         method: 'POST',
+        headers: { 
+          "Content-Type": "application/json",
+          "x-api-key": process.env.REACT_APP_API_KEY 
+        },
       })
       .then(response => response.json())
       .then(data => console.log(data.message))
@@ -42,7 +43,10 @@ function AiChatbot() {
     try {
       const response = await fetch('https://scali-tech.com/chat', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          "Content-Type": "application/json",
+          "x-api-key": process.env.REACT_APP_API_KEY 
+        },
         body: JSON.stringify({ message }),
       });
       const data = await response.json();
