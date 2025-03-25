@@ -28,7 +28,7 @@ function AiChatbot() {
         method: 'POST',
         headers: { 
           "Content-Type": "application/json",
-          "x-api-key": process.env.REACT_APP_API_KEY 
+          // "x-api-key": process.env.REACT_APP_API_KEY 
         },
       })
       .then(response => response.json())
@@ -45,7 +45,7 @@ function AiChatbot() {
         method: 'POST',
         headers: { 
           "Content-Type": "application/json",
-          "x-api-key": process.env.REACT_APP_API_KEY 
+          // "x-api-key": process.env.REACT_APP_API_KEY 
         },
         body: JSON.stringify({ message }),
       });

@@ -45,8 +45,7 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://scali-tech.com",
-  "homepage": "https://sachi89.github.io/solutionbot/",
+  "homepage": "https://scali-tech.com",
   "devDependencies": {
     "babel-eslint": "^10.1.0"
   }
